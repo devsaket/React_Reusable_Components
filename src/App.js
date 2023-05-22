@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       {/* <ProgressBars /> */}
-      <RBootstrapProgressBar />
+      <RBootstrapProgressBar progress={78} delayTime={400} />
     </>
   );
 }

@@ -1,14 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ProgressBar } from 'react-bootstrap'
 
-const RBootstrapProgressBar = () => {
-    const [nowpercent, setNowpercent] = useState(0)
+const RBootstrapProgressBar = ({ progress, delayTime }) => {
+    const [nowPercent, setNowPercent] = useState(0)
+    let delay = delayTime || 300
+    const pfunc = () => {
+        const id = setInterval(() => {
+            setNowPercent(progress);
+        }, delay);
+        return () => {
+            clearInterval(id);
+        }
+    }
 
-  return (
-    <>
-        <ProgressBar variant="danger" min={0} max={100} now={nowpercent} label={`${nowpercent}%`} className='m-5' />
-    </>
-  )
+    useEffect(() => {
+        pfunc()
+    }, [])
+
+
+
+    return (
+        <>
+            <ProgressBar variant="danger" min={0} max={100} now={nowPercent} label={`${nowPercent}%`} className='m-5' />
+        </>
+    )
 }
 
 export default RBootstrapProgressBar
