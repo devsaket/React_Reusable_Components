@@ -21,7 +21,7 @@ const RBootstrapProgressBar = ({ progress, delayTime }) => {
 
     return (
         <>
-            <ProgressBar variant="danger" min={0} max={100} now={nowPercent} label={`${nowPercent}%`} className='m-5' />
+            <ProgressBar variant="danger" min={0} max={100} now={nowPercent} label={`${nowPercent}%`} />
         </>
     )
 }
